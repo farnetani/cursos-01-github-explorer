@@ -29,6 +29,11 @@ module.exports = {
         test: /\.jsx$/, // expressão regular que verifica se o arquivo é terminado .jsx
         exclude: /node_modules/, // excluo todos os arquivos que estao na pasta node_modules
         use: 'babel-loader' // faz a integração entre o Babel e o Webpack
+      },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: ['style-loader', 'css-loader']
       }
     ]
   }
