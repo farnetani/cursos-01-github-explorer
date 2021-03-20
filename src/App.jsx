@@ -1,9 +1,7 @@
 import React from 'react'
 
 export function App() {
-  return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
-  )
+  throw new Error('Erro, teste...')
+
+  return <h1>Hello World</h1>
 }

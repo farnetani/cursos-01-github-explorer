@@ -1,8 +1,12 @@
 const path = require('path') // como roda dentro do nodejs e o node conhece o require, usamos ele
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
+const isDevelopment = process.env.NODE_ENV !== 'production'
+
 module.exports = {
   // mode: 'development', //production // none // feito com parametro no package.json
+  mode: isDevelopment ? 'development' : 'production',
+  devtool: isDevelopment ? 'eval-source-map' : 'source-map',
   entry: path.resolve(__dirname, 'src', 'index.jsx'), // linux: 'src/index.jsx', windows: `src\\index.jsx`
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -10,6 +14,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx']
+  },
+  devServer: {
+    contentBase: path.resolve(__dirname, 'public')
   },
   plugins: [
     new HtmlWebpackPlugin({
