@@ -27,3 +27,13 @@ git checkout main
 git merge <branch>
 git push
 ```
+
+## Configuração do lint-staged no package.json
+```
+"lint-staged": {
+    "src/**/*": [
+      "npm run lint --fix"
+    ]
+  },
+
+```
